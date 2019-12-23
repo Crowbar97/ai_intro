@@ -11,8 +11,9 @@ Tasks:
         
     3) Test on different batch sizes: [1e1, 1e5]
 
-    4) Test with different window step value, choose best by L2 distance
+    4) Test with different window step value,
+       choose best by L2 distance
 
     6) Build a plots with:
         - density comparisons
-        - step value of batch size dependencies
+        - value of batch size dependencies

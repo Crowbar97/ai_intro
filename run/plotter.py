@@ -51,8 +51,8 @@ def compare(dist, samples,
     plt.close(fig)
 
 def parzen_plain(x_points, y_points,
-          title, label, x_label, y_label,
-          save_dir, file_name):
+                 title, label, x_label, y_label,
+                 file_path):
     fig = plt.figure(figsize=figsize)
 
     plt.plot(x_points, y_points, 'bo-', label=label)
@@ -63,12 +63,12 @@ def parzen_plain(x_points, y_points,
     plt.grid(True)
     plt.legend(loc=0)
 
-    plt.savefig(save_dir + file_name)
+    plt.savefig(file_path)
     plt.close(fig)
 
 def parzen_hist(dist_desc,
                 dist_points, bins,
-                save_dir, file_name):
+                file_path):
     fig = plt.figure(figsize=figsize)
 
     plt.plot(dist_points,
@@ -86,14 +86,14 @@ def parzen_hist(dist_desc,
     plt.grid(True)
     plt.legend(loc=0)
 
-    plt.savefig(save_dir + file_name)
+    plt.savefig(file_path)
     plt.close(fig)
 
 
 def parzen_compare(dist_desc, dist_points,
                    check_points, dist_dens, est_dens,
                    point_count, w_size,
-                   save_dir, file_name):
+                   file_path):
     fig = plt.figure(figsize=figsize)
 
     plt.plot(dist_points,
@@ -112,12 +112,30 @@ def parzen_compare(dist_desc, dist_points,
 
     plt.title("Parzen window density estimation"
               + "\nDistrib: %s" % dist_desc
-              + "\npoint count = %.0e" % point_count
+              + "\npoint count = %d" % point_count
               + "\nwindow size = %.2f" % w_size)
     plt.xlabel("x")
     plt.ylabel("density")
     plt.grid(True)
     plt.legend(loc=0)
 
-    plt.savefig(save_dir + file_name)
+    plt.savefig(file_path)
     plt.close(fig)
+
+def parzen_plain_2v(x, y, z,
+                    title, x_label, y_label,
+                    file_path):
+    fig = plt.figure(figsize=figsize)
+
+    plt.contourf(x, y, z,
+                 40, cmap='RdYlBu')
+
+    plt.title(title)
+    plt.xlabel(x_label)
+    plt.ylabel(y_label)
+    plt.grid(True)
+    plt.legend(loc=0)
+
+    plt.savefig(file_path)
+    plt.close(fig)
+
